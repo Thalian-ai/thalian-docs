@@ -226,6 +226,30 @@ Before taking action, you can preview the impact:
 2. The simulation shows: findings that would close, findings that might open, and the projected risk score change
 3. This helps you prioritize actions by their actual impact on your security posture
 
+## AI Assistant
+
+The AI assistant (chat panel in the top navigation) provides a natural-language interface for querying findings and initiating remediation actions.
+
+### Grouped findings
+
+For findings that affect multiple users — admin without MFA, suspended users in privileged groups, stale admins, and other grouped signals — the assistant surfaces all affected user emails and can act on each one individually. Ask "Who's affected by the admin MFA finding?" and it returns each email by name; follow up with a remediation request and it initiates the action for that specific user.
+
+### Chat actions
+
+High-impact actions through the assistant are confirmation-gated — the assistant states the specific action and target before executing.
+
+| Action | Description |
+|---|---|
+| **Remove admin role** | Removes admin or privileged roles from a user across all connected IDPs (Okta, Google Workspace, Entra ID, JumpCloud, OneLogin). Account stays active; only elevated roles are removed. |
+| **Suspend user** | Temporarily disable account access |
+| **Revoke sessions** | End all active sessions |
+| **Dismiss finding** | Dismiss a finding with a reason |
+| **Snooze finding** | Snooze a finding for 1–90 days |
+
+All actions taken through the AI assistant are recorded in the audit log.
+
+---
+
 ## Causality Insights
 
 When Thalian detects that findings are related across platforms, it surfaces **Causality Insights** — connections between findings that share the same affected entity. For example:

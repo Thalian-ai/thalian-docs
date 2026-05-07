@@ -39,7 +39,7 @@ Access Reviews require a **Pro or Enterprise** plan.
 2. Click **New Campaign**
 3. Fill in the campaign details:
    - **Title** — a descriptive name (e.g., "Q1 2026 Access Certification")
-   - **Scope** — optionally filter to specific platforms, departments, or identity types
+   - **Scope** — optionally filter to specific platforms, departments, or identity types. Two dedicated scopes cover non-human principals: **Non-human identities only** (all service accounts, bots, and AI agents) and **AI agents only** (narrowest scope, for workspaces with a formal agent inventory). These scopes satisfy SOC 2 CC6.3 and NIST CSF 2.0 PR.AA-05 review obligations for non-human principals, which fall outside the scope of standard human-identity campaigns.
    - **Due date** — the target completion date
 4. Click **Create Campaign**
 

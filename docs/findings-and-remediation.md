@@ -38,6 +38,18 @@ Thalian runs 400+ analysis rules across 10 categories every time data is synced:
 
 The cross-platform join is the key differentiator. Thalian correlates data across disconnected systems to surface insights that no single tool can produce — for example, an identity that's been deactivated in Okta but still has active entitlements in Google Workspace.
 
+### AI Agent and NHI Governance
+
+Thalian classifies Okta AI Agents and admin-classified machine identities as a first-class identity tier. This is distinct from shadow IT detection — these are principals your IT org has provisioned (or Okta has created on your behalf) that need governance just like human users do. Two findings govern NHI populations:
+
+- **Possible AI agent unclassified** (medium, identity security): *"langchain-poc-bot is a service account that matches AI framework naming patterns but hasn't been classified."* Fires when a service account's name or email matches known AI orchestration frameworks — LangChain, CrewAI, Gumloop, n8n, AutoGPT, Dify, and others. Once you classify the identity as **AI Agent** via the Account type dropdown in identity detail, the finding resolves and NHI-specific governance rules apply automatically.
+
+- **AI agent count growing** (medium, compound risk): *"8 AI agents are active — 22% of the 36-person workforce. Unreviewed AI agent proliferation creates persistent access that outlives the humans who provisioned it."* Fires when active agents exceed 20% of the human workforce. The finding lists all active agents, their declared OAuth scopes, and whether each has a named human owner. The recommended action is to run an access review campaign with the "AI agents only" scope. Maps to NIST CSF 2.0 PR.AA-01 and SOC 2 CC6.1/CC6.2.
+
+When an identity is classified as an AI agent — either by Okta's platform tagging or by admin classification — the following rules are suppressed: MFA enforcement, SSO enforcement, off-hours access, behavioral anomaly baselines, and never-logged-in checks. These rules produce false positives for non-human principals that run 24/7 via automated pipelines. The NHI-specific rules above replace them.
+
+See the [Okta integration guide](./integrations/okta.md) for scope requirements and [Compliance](./compliance.md) for the NIST CSF 2.0 control mapping.
+
 ### AI Tool Detection
 
 Thalian tracks 23+ AI tools — including **ChatGPT**, **Claude**, **Cursor**, **Perplexity**, **Copilot**, **Gemini**, **Midjourney**, and **Notion AI** — and surfaces them as Shadow IT findings when they're authorized via OAuth against your identity provider or Google Workspace. Because AI assistants are typically connected through personal OAuth rather than sanctioned SSO, they're often invisible to SSO-centric reporting.

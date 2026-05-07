@@ -114,6 +114,39 @@ The Compliance page is designed to be used alongside your access reviews and aud
 
 ---
 
+## NIST CSF 2.0 coverage
+
+Thalian maps findings to NIST Cybersecurity Framework 2.0 — the third framework tab on the Compliance page alongside SOC 2 and ISO 27001. NIST CSF 2.0 extended the Protect.AA (Privileged Access) category to cover "users, services, AND hardware," making it the canonical framework for AI agent and non-human identity (NHI) governance.
+
+Thalian surfaces six NIST CSF 2.0 controls:
+
+### PR.AA — Privileged Access and Authentication
+
+| Control | What Thalian monitors |
+|---|---|
+| PR.AA-01 — Non-human identity lifecycle | AI agent and service account lifecycle governance — sync from Okta AI Agents, classification enforcement, owner attribution, orphan agent detection, and agent population growth monitoring |
+| PR.AA-03 — Authentication strength | MFA enforcement across all connected identity providers and SaaS applications |
+| PR.AA-05 — Access reviews | Periodic review of entitlements including "AI agents only" and "NHI only" scopes — NHI-specific certification obligation explicit in NIST CSF 2.0 |
+
+### ID.AM — Asset Management
+
+| Control | What Thalian monitors |
+|---|---|
+| ID.AM-01 — Asset inventory | Identity and application inventory completeness — unclassified AI agents, unmanaged devices, shadow IT applications |
+| ID.AM-05 — Resource criticality | Classification of high-priority identities (admins, executives) and high-risk assets for prioritized remediation |
+
+### DE.CM — Monitoring
+
+| Control | What Thalian monitors |
+|---|---|
+| DE.CM-03 — Activity monitoring | Behavioral anomaly detection, off-hours activity, login frequency baselines, mailbox forwarding rule detection |
+
+### Using NIST CSF 2.0 for AI agent governance
+
+NIST CSF 2.0 PR.AA-01 is the most direct control for AI agent governance obligations. When Thalian surfaces the **Possible AI agent unclassified** or **AI agent count growing** findings, both map to PR.AA-01 in the Compliance page — so you can use Thalian's finding status as live evidence that you are actively monitoring your NHI population. For PR.AA-05, running an access review campaign scoped to "AI agents only" or "NHIs only" produces a timestamped evidence record directly attachable to audit requests.
+
+---
+
 ## Exporting compliance evidence
 
 Each control in the Compliance page has an **Export Evidence** option that generates a summary of:

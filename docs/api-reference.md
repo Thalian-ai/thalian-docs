@@ -65,20 +65,26 @@ Generate a key in **Settings → API Keys**. Pass it as a Bearer token:
 Authorization: Bearer thal_your_key_here
 ```
 
-API keys are workspace-scoped and read-only by default. They do not require Supabase Auth and work from any environment that can reach `app.thalian.ai`.
+API keys are workspace-scoped. Read-only keys (the default) can call all query tools but cannot modify workspace data. Write-scope keys are required for action tools and are recorded in the audit log on every mutating call. They do not require Supabase Auth and work from any environment that can reach `mcp.thalian.ai`.
 
 ### MCP endpoints
 
-All MCP endpoints accept an optional `workspaceId` query parameter. If omitted, the workspace associated with the API key is used.
+All MCP endpoints accept an optional `workspaceId` query parameter. If omitted, the workspace associated with the API key is used. Endpoints marked **write** require a write-scope API key.
 
-| Method | Path | Description |
-|---|---|---|
-| `GET` | `/api/mcp/risk-score` | Risk score (0–100), severity breakdown, top 5 open findings |
-| `GET` | `/api/mcp/findings` | Open findings — filterable by `severity`, `category`, `limit` |
-| `GET` | `/api/mcp/identity` | Identity details by `email` — status, MFA, app access, linked findings |
-| `GET` | `/api/mcp/integrations` | Connected platforms and sync status |
-| `GET` | `/api/mcp/posture-summary` | Plain-language executive summary with key metrics |
-| `POST` | `/api/mcp/sync` | Trigger a background sync for all connected integrations |
+| Method | Path | Description | Scope |
+|---|---|---|---|
+| `GET` | `/api/mcp/risk-score` | Risk score (0–100), severity breakdown, top 5 open findings | read |
+| `GET` | `/api/mcp/findings` | Open findings — filterable by `severity`, `category`, `limit` | read |
+| `GET` | `/api/mcp/identity` | Identity details by `email` — status, MFA, app access, linked findings | read |
+| `GET` | `/api/mcp/integrations` | Connected platforms and sync status | read |
+| `GET` | `/api/mcp/posture-summary` | Plain-language executive summary with key metrics | read |
+| `GET` | `/api/mcp/rules` | Active detection rules with severity, category, and affected entity types | read |
+| `GET` | `/api/mcp/app-policy` | Application policy status by `app_name` — sanctioned, unauthorized, blocked, or none | read |
+| `POST` | `/api/mcp/sync` | Trigger a background sync for all connected integrations | **write** |
+| `POST` | `/api/mcp/findings/snooze` | Snooze an open finding for 1–90 days | **write** |
+| `POST` | `/api/mcp/findings/dismiss` | Dismiss an open finding | **write** |
+| `POST` | `/api/mcp/findings/remediate` | Queue a remediation action for an open finding | **write** |
+| `POST` | `/api/mcp/app-policy` | Set an application's policy status | **write** |
 
 ### GET /api/mcp/risk-score
 

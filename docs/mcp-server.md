@@ -10,6 +10,10 @@ MCP is an open protocol that lets AI tools call external services as structured 
 
 ## Available tools
 
+### Query tools
+
+These tools are available to all API keys (read and write scope).
+
 | Tool | Description |
 |---|---|
 | `get_risk_score` | Workspace risk score (0–100), severity breakdown, and top 5 open findings |
@@ -17,7 +21,20 @@ MCP is an open protocol that lets AI tools call external services as structured 
 | `lookup_identity` | Look up a user by email across all connected platforms |
 | `get_integrations` | All integrations and their connection and sync status |
 | `get_posture_summary` | Plain-text summary: risk grade, MFA/SSO coverage, top risk areas |
+| `list_rules` | All active detection rules with severity, category, and affected entity types |
+| `check_app_policy` | Check whether an application is sanctioned, flagged as unauthorized, or blocked |
+
+### Action tools
+
+These tools require a **write-scope API key** (see [API keys](#api-keys)).
+
+| Tool | Description |
+|---|---|
 | `trigger_sync` | Trigger a sync across all connected integrations |
+| `snooze_finding` | Snooze an open finding for 1–90 days |
+| `dismiss_finding` | Dismiss an open finding |
+| `remediate_finding` | Queue a remediation action for an open finding |
+| `set_app_policy` | Set an application's policy status to sanctioned, unauthorized, blocked, or clear it |
 
 ## Setup
 
@@ -63,9 +80,17 @@ After saving the config, restart the client. You can verify the connection is wo
 ## API keys
 
 - Each workspace can have up to 10 active API keys
-- Keys are scoped to your workspace — they can only read data from the workspace they were created in
+- Keys are scoped to your workspace — they can only access data from the workspace they were created in
 - Keys can be revoked at any time from **Settings** → **API Keys**
 - The full key value is only shown once at creation — store it securely
+
+### Read vs. write scope
+
+By default, API keys are **read-only** — they can call all query tools but cannot modify workspace data.
+
+To use action tools (`trigger_sync`, `snooze_finding`, `dismiss_finding`, `remediate_finding`, `set_app_policy`), create a **write-scope** key in **Settings** → **API Keys** and enable the write permission toggle. Write-scope keys are recorded in the audit log on every mutating operation.
+
+Store write-scope keys with the same care as admin credentials.
 
 ## Troubleshooting
 
@@ -75,12 +100,12 @@ The key may have been revoked or copied incorrectly. Revoke it in Settings and c
 **Tools don't appear in your AI client**
 Restart the client after editing the config file. Check that the JSON is valid (no trailing commas).
 
-**"Unauthorized" on trigger_sync**
-Ensure your key was created in the correct workspace.
+**"Write scope required" on action tools**
+Action tools (`trigger_sync`, `snooze_finding`, `dismiss_finding`, `remediate_finding`, `set_app_policy`) require a write-scope key. Create a new key with write permissions enabled in **Settings** → **API Keys**.
 
 ## Security
 
-API keys are hashed with SHA-256 before storage. Thalian never stores the raw key value. All MCP endpoints are read-only — no key can modify workspace data.
+API keys are hashed with SHA-256 before storage. Thalian never stores the raw key value. Read-only keys (the default) cannot modify workspace data. Write-scope keys are required for action tools and are recorded in the audit log on every mutating call.
 
 ---
 

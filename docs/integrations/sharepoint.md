@@ -29,6 +29,12 @@ SharePoint shares the Microsoft OAuth consent with Entra ID. The scope specific 
 - **External sharing** — sites and documents shared with external users or anyone links
 - **Document permissions** — permission levels and sharing configurations across sites
 
+## Remediation actions
+
+SharePoint findings support **Revoke sessions** (`revoke_sessions`) only, which delegates to Microsoft Graph to invalidate the user's active refresh tokens and force re-authentication at next sign-in.
+
+Account-wide lifecycle actions (suspend, force password change, MFA enroll, admin role removal) should be performed through the [Microsoft Entra ID integration](./microsoft-entra-id.md) rather than from a SharePoint finding. Disabling the user at the SharePoint scope would disable the entire Microsoft 365 identity, which is rarely the intent when responding to an oversharing or external-link finding.
+
 ## Troubleshooting
 
 - **Missing sites:** Ensure the authorizing account has at least read access to the SharePoint admin center

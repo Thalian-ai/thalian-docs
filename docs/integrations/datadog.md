@@ -60,7 +60,22 @@ Thalian does **not** sync Datadog monitors, dashboards, logs, metrics, or applic
 
 - **SAML/SSO:** If your organization uses SAML single sign-on for Datadog (via Okta, Entra ID, etc.), the admin-without-MFA rule is automatically suppressed — authentication and MFA are handled by your IDP, not Datadog's native MFA. Offboarding gap detection still applies.
 - **Site configuration:** Supported Datadog sites: `datadoghq.com` (US), `datadoghq.eu` (EU), `us3.datadoghq.com`, `us5.datadoghq.com`, `ap1.datadoghq.com`, `ddog-gov.com`.
-- **Read-only:** Thalian does not write to Datadog. No users are modified, disabled, or deleted by Thalian.
+
+---
+
+## Remediation actions
+
+From a Datadog finding in Thalian, you can trigger the following actions directly against the user without leaving the **Findings** page. Actions use the API key and Application key configured during connect and call the Datadog Management API v2 at `PATCH /api/v2/users/{userId}`.
+
+| Action | What it does |
+|---|---|
+| **Suspend user** (`suspend_user`) | Sets the user's `disabled` attribute to `true`, blocking sign-in to your Datadog organization while preserving the account record for audit |
+| **Unsuspend user** (`unsuspend_user`) | Restores access by setting `disabled` back to `false` |
+
+The Application key used for sync must have the `user_access_manage` permission for these actions to succeed. A key with only `user_access_read` can run sync but will fail at remediation with a 403.
+
+!!! warning "Not exposed by the Datadog API"
+    MFA enforcement and session revocation are not currently available through the Datadog Management API. To force re-authentication, suspend and unsuspend the user, which terminates active sessions as a side effect.
 
 ---
 

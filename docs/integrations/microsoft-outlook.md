@@ -35,6 +35,12 @@ For the full list of Microsoft scopes, see [Connect Microsoft Entra ID](./micros
 - **Mailbox monitoring** — mailbox configurations and delegation settings
 - **Forwarding rule detection** — inbox rules that forward mail externally, which can indicate compromised accounts or data exfiltration
 
+## Remediation actions
+
+Outlook findings support **Revoke sessions** (`revoke_sessions`) only, which delegates to Microsoft Graph to invalidate the user's active refresh tokens and force re-authentication at next sign-in.
+
+Account-wide lifecycle actions (suspend, force password change, MFA enroll, admin role removal) should be performed through the [Microsoft Entra ID integration](./microsoft-entra-id.md) rather than from an Outlook finding. Disabling the user at the Outlook scope would disable the entire Microsoft 365 identity, which is rarely the intent when responding to a mailbox-specific finding such as a suspicious forwarding rule.
+
 ## Troubleshooting
 
 - **Insufficient permissions:** The authorizing account must have Exchange admin or Global Reader permissions

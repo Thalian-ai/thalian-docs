@@ -94,6 +94,18 @@ Ensure your Thalian integration can reach your self-hosted instance over HTTPS. 
 
 ---
 
+## Remediation actions
+
+From a GitLab finding in Thalian, you can trigger the following action directly against the group member without leaving the **Findings** page. Actions use the Group Access Token you configured during connect.
+
+| Action | What it does |
+|---|---|
+| **Remove from group** (`remove_from_group`) | Calls `DELETE /api/v4/groups/{id}/members/{user_id}` to revoke the user's membership in the connected group. The user's GitLab account remains active; only their access to this group is removed |
+
+A Group Access Token cannot suspend or delete the user's GitLab account itself. Account-level lifecycle actions require GitLab Admin API access, which is only available on self-hosted instances and is not exposed to GATs. To fully offboard a user, suspend them in your primary IDP and let SAML/SCIM propagate, or perform the account suspension from the GitLab admin area on a self-hosted instance.
+
+---
+
 ## Troubleshooting
 
 - **MFA findings not appearing:** The Group Access Token must include `read_user` scope. Re-create the token with both `read_api` and `read_user` scopes and reconnect

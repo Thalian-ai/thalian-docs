@@ -69,6 +69,20 @@ Connecting PingOne enables the following platform-specific detection rules, plus
 | `ping_identity::user_not_in_idp` | High | PingOne users with no matching identity in your primary IDP |
 | `ping_identity::offboarded_user_active` | High | Users suspended or deprovisioned in your primary IDP who remain active in PingOne |
 
+## Remediation actions
+
+From a PingOne finding in Thalian, you can trigger the following actions directly against the user without leaving the **Findings** page. Actions call the PingOne Workforce API at `PATCH /v1/environments/{envId}/users/{userId}` with an `enabled` flag, and run under the same Worker application credentials used for sync.
+
+| Action | What it does |
+|---|---|
+| **Suspend user** (`suspend_user`) | Sets the user to `enabled: false`, blocking sign-in across every PingOne-protected application |
+| **Unsuspend user** (`unsuspend_user`) | Reverses a prior suspension by setting `enabled: true` |
+
+The Worker application's granted role must include write access to the users resource for these actions to succeed. The read-only roles described above are sufficient for sync but not for remediation.
+
+!!! warning "Not yet supported through Thalian"
+    `force_password_change`, `revoke_sessions`, `force_mfa_enroll`, and `remove_admin_role` are not currently available for PingOne. Perform these actions from the PingOne admin console.
+
 ## Troubleshooting
 
 - **Auth failed:** Confirm the Client ID and Client Secret were copied from the **Configuration** tab and that the application is enabled

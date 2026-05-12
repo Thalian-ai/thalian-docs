@@ -1,15 +1,17 @@
 # Compliance
 
-The Compliance page maps Thalian's findings and controls directly to SOC 2 Type II and ISO 27001 requirements — so your team can see at a glance which controls are covered, which are at risk, and what evidence Thalian has already collected.
+The Compliance page maps Thalian's findings and controls directly to SOC 2 Type II, ISO 27001, NIST CSF 2.0, and ISO 42001 requirements — so your team can see at a glance which controls are covered, which are at risk, and what evidence Thalian has already collected. All four frameworks render side-by-side as tabs, and the Compliance Trend chart tracks per-framework scores over time.
 
 ---
 
 ## What is the Compliance page?
 
-The Compliance page (`/compliance`) translates Thalian's raw findings into control-level coverage across two frameworks:
+The Compliance page (`/compliance`) translates Thalian's raw findings into control-level coverage across four frameworks:
 
 - **SOC 2 Type II** — Trust Services Criteria (Security, Availability, Confidentiality, Processing Integrity, Privacy)
 - **ISO 27001** — Annex A controls
+- **NIST CSF 2.0** — Cybersecurity Framework 2.0, including non-human identity and AI agent governance
+- **ISO 42001** — AI Management System (ISO/IEC 42001:2023) controls for AI inventory, monitoring, data flow, responsible use, and third-party AI suppliers
 
 For each control, Thalian shows:
 
@@ -144,6 +146,48 @@ Thalian surfaces six NIST CSF 2.0 controls:
 ### Using NIST CSF 2.0 for AI agent governance
 
 NIST CSF 2.0 PR.AA-01 is the most direct control for AI agent governance obligations. When Thalian surfaces the **Possible AI agent unclassified** or **AI agent count growing** findings, both map to PR.AA-01 in the Compliance page — so you can use Thalian's finding status as live evidence that you are actively monitoring your NHI population. For PR.AA-05, running an access review campaign scoped to "AI agents only" or "NHIs only" produces a timestamped evidence record directly attachable to audit requests.
+
+---
+
+## ISO 42001 coverage
+
+ISO/IEC 42001:2023 is the first international standard for AI management systems. Thalian maps findings to the Annex A controls that cover the operational surface where shadow AI, ungoverned AI tools, and AI agent sprawl create real exposure. Formal AI policy authoring, impact assessments, and AI development controls live outside the platform.
+
+### AI System Resources
+
+| Control | What Thalian monitors |
+|---|---|
+| A.4.2 — Resource Documentation | Inventory of AI systems and tools in use across the org, including unclassified AI agents and widespread unsanctioned AI tool adoption |
+
+### AI System Life Cycle
+
+| Control | What Thalian monitors |
+|---|---|
+| A.6.2.2 — AI System Requirements and Specification | Sanctioning gate for AI tools — unreviewed OAuth grants with corporate data access surface as control gaps |
+| A.6.2.6 — AI System Operation and Monitoring | AI agent population velocity, write-scope AI grants, and unclassified machine identities flagged as ongoing operational risk |
+| A.6.2.8 — AI System Recording of Event Logs | Immutable audit log (SHA-256 tamper detection) covering AI agent sync, classification, and remediation events |
+
+### Data for AI Systems
+
+| Control | What Thalian monitors |
+|---|---|
+| A.7.3 — Acquisition of Data | Corporate data flowing to third-party AI tools via OAuth grants — both read access and write-back surfaces |
+
+### Use of AI Systems
+
+| Control | What Thalian monitors |
+|---|---|
+| A.9.2 — Processes for Responsible Use | Terminated employees with active AI tool grants, widespread unsanctioned AI use, write-scope grants without review |
+
+### Third-Party and Customer Relationships
+
+| Control | What Thalian monitors |
+|---|---|
+| A.10.3 — Suppliers | Unsanctioned AI vendors in widespread use surface as de-facto suppliers without formal supplier management |
+
+### Using ISO 42001 for AI governance programs
+
+ISO 42001 is the cleanest framework to point to when a customer or regulator asks how you govern AI in production. Run the Compliance page filtered to ISO 42001 before an AI risk assessment — failing controls there name the specific tools, agents, or data flows driving the gap, which becomes the input list for your AI inventory and risk register.
 
 ---
 

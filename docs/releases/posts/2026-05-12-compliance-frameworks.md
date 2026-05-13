@@ -20,13 +20,13 @@ Two new frameworks join SOC 2 and ISO 27001 as tabs on the Compliance page:
 
 ISO 42001 is the cleanest framework to point to when a customer or regulator asks how AI is governed in production. It covers the operational surface where shadow AI, ungoverned AI tool grants, and AI agent sprawl create real exposure — exactly where Thalian's detection rules already operate. Run the Compliance page filtered to ISO 42001 before an AI risk assessment and the failing controls name the specific tools, agents, or data flows driving the gap. That list becomes the input for your AI inventory and risk register.
 
-Coverage today maps to Thalian's existing AI governance rules:
+Coverage today maps to Thalian's existing AI governance detections:
 
-- **A.4.2 + A.6.2.2** — `ai_tool_widespread`, `possible_ai_agent_unclassified`
-- **A.6.2.6** — `drift::ai_agent_growth`, `ai_tool_write_access`
-- **A.7.3** — `ai_tool_data_access`, `ai_tool_write_access`
-- **A.9.2** — `hr::terminated_ai_tool_access`, `ai_tool_widespread`
-- **A.10.3** — `ai_tool_widespread`
+- **A.4.2 + A.6.2.2** — Unsanctioned AI tool adoption and unclassified machine identities matching known agent framework patterns
+- **A.6.2.6** — Workforce-ratio drift in the AI agent population, and AI tools granted write access to corporate data
+- **A.7.3** — OAuth scopes granting AI tools read or write access to corporate data
+- **A.9.2** — Terminated employees with active AI tool grants, and widespread unsanctioned AI adoption
+- **A.10.3** — Third-party AI vendors operating outside any supplier management process
 
 ## Compliance Trend chart plots all four frameworks
 

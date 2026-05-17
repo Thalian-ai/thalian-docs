@@ -133,7 +133,7 @@ We do not sell your data. We share data only in these circumstances:
 | **Cloudflare** | Application hosting and CDN | Request routing metadata |
 | **Plain.com** | Support chat widget | Name, email, support conversation content |
 
-The complete sub-processor registry, including locations and data processed, is maintained at [policies/sub-processors.md](../policies/sub-processors.md).
+The complete sub-processor registry, including locations and data processed, is maintained at [thalian.ai/subprocessors](https://thalian.ai/subprocessors).
 
 We may also disclose data if required by law, court order, or to protect our legal rights.
 

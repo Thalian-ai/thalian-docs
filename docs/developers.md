@@ -18,7 +18,7 @@ Connect any MCP-compatible AI assistant — Claude Code, Cursor, Windsurf — di
 
 Programmatic access to your workspace data. Use the API to pull findings into your own dashboards, build custom automations, or integrate Thalian data into your SIEM or ticketing system.
 
-- Base URL: `https://api.thalian.ai/v1`
+- Base URL: `https://app.thalian.ai/api/`
 - Bearer token authentication via API keys
 - Rate limit: 1,000 requests/hour on Pro
 

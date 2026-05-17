@@ -83,7 +83,7 @@ The KPI Dashboard shows goal progress at a glance:
 
 Create and manage measurable security goals (OKRs):
 
-**Available metrics (14 total):**
+**Available metrics (12 total):**
 
 | Group | Metrics |
 |---|---|

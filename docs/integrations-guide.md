@@ -108,7 +108,7 @@ Thalian supports 40+ platforms across 11 categories:
 
 Click **Browse** on the Integrations page to open the full library of supported platforms, organized by category:
 
-![The Integration Library showing 42 supported platforms with category filters and connection status](./assets/screenshots/integrations/integrations-library-browse.png)
+![The Integration Library showing 41 supported platforms with category filters and connection status](./assets/screenshots/integrations/integrations-library-browse.png)
 
 ## Connecting an Integration
 

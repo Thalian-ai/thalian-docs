@@ -74,7 +74,7 @@ Beyond user and access data, Thalian fetches and analyzes Okta's org-level secur
 
 This configuration data powers 14 Okta-specific detection rules — for example, firing when ThreatInsight is in audit-only mode (logging threats but not blocking them), when an MFA policy excludes high-privilege groups, or when admin accounts have long-lived API tokens. The AI assistant also uses this context to answer questions about your Okta security posture.
 
-No additional OAuth scopes are required — all configuration data is accessible with the four scopes granted during initial setup.
+No additional OAuth scopes are required — all configuration data is accessible with the five scopes granted during initial setup.
 
 ## Okta AI Agents and NHI governance
 

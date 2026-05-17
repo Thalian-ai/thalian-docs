@@ -23,6 +23,7 @@ Select the identity provider your organization uses:
 - **Google Workspace** — OAuth with admin consent
 - **JumpCloud** — API key authentication
 - **OneLogin** — Client ID and secret
+- **PingOne** — OAuth 2.0 client credentials (Worker app)
 
 ### Step 2: Enter Credentials
 
@@ -65,7 +66,7 @@ Five summary metrics updated after each analysis:
 | **Identities** | Total unique identities across all connected platforms |
 | **Shadow IT** | Number of unvetted/unsanctioned applications detected |
 | **Stale Accounts** | Users who haven't logged into any connected platform in 30+ days |
-| **Risk Score** | Normalized composite score (0–100) based on severity-weighted findings. Uses a sigmoid curve so early findings have outsized impact and the score flattens as findings accumulate |
+| **Security Posture** | Normalized composite score (0–100) based on severity-weighted findings. Uses a linear formula: raw score divided by a workspace-scaled ceiling, capped at 100 |
 
 Each card shows a trend arrow comparing to the previous analysis run.
 

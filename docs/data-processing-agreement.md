@@ -70,7 +70,7 @@ Thalian uses the following sub-processors:
 | **Sentry** | Error monitoring | Technical error data (PII scrubbed; 10% trace sampling) | United States |
 | **Plain.com** | Support chat widget | Name, email address, support conversation content | United States |
 
-The Controller authorizes the use of the sub-processors listed above. Thalian will notify the Controller of any intended changes to sub-processors (additions or replacements) with at least **14 days' advance notice** before the change takes effect, giving the Controller the opportunity to object. The complete sub-processor registry is maintained at [policies/sub-processors.md](../policies/sub-processors.md).
+The Controller authorizes the use of the sub-processors listed above. Thalian will notify the Controller of any intended changes to sub-processors (additions or replacements) with at least **14 days' advance notice** before the change takes effect, giving the Controller the opportunity to object. The complete sub-processor registry is maintained at [thalian.ai/subprocessors](https://thalian.ai/subprocessors).
 
 ## 6. Security Measures
 

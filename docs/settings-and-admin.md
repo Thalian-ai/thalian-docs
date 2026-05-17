@@ -95,7 +95,7 @@ Configure how and when you receive notifications:
 
 Create API keys to authenticate MCP-compatible AI assistants (Claude Code, Cursor, Windsurf, and others) against your workspace data. Go to **Settings** → **API Keys** to create, list, or revoke keys.
 
-Each key is workspace-scoped and read-only. You can have up to 10 active keys per workspace. For setup instructions, see [MCP Server](./mcp-server.md).
+Keys are workspace-scoped. Read-only keys (the default) can query workspace data via all MCP tools. Write-scope keys are required for MCP action tools that modify workspace state and are recorded in the audit log on every mutating call. You can have up to 10 active keys per workspace. For setup instructions, see [MCP Server](./mcp-server.md).
 
 ### Platform
 

@@ -6,7 +6,7 @@ Step-by-step guide to connecting Box to Thalian for identity gap detection and e
 
 ## What Thalian detects
 
-Thalian cross-references Box enterprise users against your corporate identity provider and monitors admin event logs for data exposure activity — 4 detection rules:
+Thalian cross-references Box enterprise users against your corporate identity provider and monitors admin event logs for data exposure activity — 6 detection rules:
 
 | Finding | Severity |
 |---|---|
@@ -14,6 +14,8 @@ Thalian cross-references Box enterprise users against your corporate identity pr
 | Box admin not in IDP — a Box admin or co-admin has no matching IDP account | Critical |
 | Box user not in IDP — a standard Box enterprise user has no matching IDP account | High |
 | External sharing activity — files or folders have been shared externally in the sync window | Medium |
+| Box Shield anomaly alert not investigated — one or more Box Shield anomaly alerts from the last 30 days have not been reviewed (requires Box Shield) | High |
+| Departing employee bulk-downloading from Box — an offboarded user downloaded files in the 7 days following account suspension or deprovisioning (requires IDP connected) | Critical |
 
 ---
 
@@ -69,6 +71,7 @@ Box is a **read-only integration** — Thalian surfaces findings but does not mo
 
 - **No users found:** The authorizing account must have admin-level access to read the full enterprise user list
 - **External sharing events missing:** Admin event log access requires a Box Business Plus or Enterprise plan
+- **Box Shield rules not firing:** Shield anomaly alert syncing requires a Box Enterprise Plus plan with Box Shield enabled. Confirm Shield is active in your Box admin settings
 - **IDP gaps not detected:** Confirm at least one IDP is connected and synced before Box findings will fire
 - **OAuth error during connect:** Ensure pop-ups are not blocked and the admin account has sufficient permissions
 

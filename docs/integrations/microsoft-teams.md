@@ -25,8 +25,8 @@ Teams shares the Microsoft OAuth consent with Entra ID. The scopes specific to T
 
 | Scope | Justification |
 |---|---|
-| `ChannelMessage.Send` | Reserved for future Teams alert delivery |
-| `Team.ReadBasic.All` | Reserved for future Teams workspace enumeration |
+| `ChannelMessage.Send` | Sends finding alerts and remediation notifications to Teams channels |
+| `Team.ReadBasic.All` | Lists available teams for alert channel configuration |
 
 For the full list of Microsoft scopes, see [Connect Microsoft Entra ID](./microsoft-entra-id.md).
 

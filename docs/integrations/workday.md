@@ -21,7 +21,7 @@ Workday shares the same HR detection rules as Rippling and BambooHR:
 | Manager mismatch — IDP manager doesn't match HR record | Low |
 | New hire with no IDP account after grace period | Medium |
 
-**Compound rules — require 3+ connected platforms (8):**
+**Compound rules — require 3+ connected platforms (7):**
 
 | Finding | Severity |
 |---|---|

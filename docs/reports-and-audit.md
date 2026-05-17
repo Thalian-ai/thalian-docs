@@ -74,9 +74,9 @@ Complete, immutable record of all actions taken in your workspace:
 The risk score displayed on the dashboard and tracked in posture reports is calculated in two steps:
 
 1. **Raw score:** `(Critical findings × 10) + (High × 5) + (Medium × 2) + (Low × 1)`
-2. **Normalized score:** `90 × (1 − e^(−raw / 25))`, capped at 100
+2. **Normalized score:** `round(raw / ceiling × 100)`, capped at 100
 
-The sigmoid normalization means a handful of critical findings produces a meaningful score increase, but the curve flattens as findings accumulate — preventing a single bad week from pegging the score at 100. Only **open** findings (status: `open` or `in_progress`) are counted. Resolved and dismissed findings do not contribute to the score.
+The ceiling is `max(300, identityCount × 5)` — a 60-identity workspace has a ceiling of 300; a 100-identity workspace has a ceiling of 500. This keeps the score meaningful at scale and prevents saturation. Only **open** findings (status: `open` or `in_progress`) are counted. Resolved and dismissed findings do not contribute to the score.
 
 ## Drift Snapshots
 

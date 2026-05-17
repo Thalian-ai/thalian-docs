@@ -86,7 +86,7 @@ Open → Snoozed (temporary hide, auto-reopens)
 | **Medium** | 2 | Moderate risk worth monitoring and planning for |
 | **Low** | 1 | Minor issue or informational finding |
 
-The **Security Posture score** on the dashboard uses a sigmoid normalization of the weighted sum. The raw score (Critical×10 + High×5 + Medium×2 + Low×1) is passed through the formula `90 × (1 − e^(−raw/25))`, capped at 100. This means a handful of critical findings produces a meaningful score increase, but the curve flattens as findings accumulate — preventing a single bad week from pegging the score at 100.
+The **Security Posture score** on the dashboard uses a linear formula. The raw score `(Critical×10 + High×5 + Medium×2 + Low×1)` is divided by a workspace-scaled ceiling and multiplied by 100, capped at 100. The ceiling is `max(300, identityCount × 5)` — a 60-identity workspace has a ceiling of 300; a 100-identity workspace has a ceiling of 500. This keeps the score meaningful at scale and prevents it from saturating at 100 for any workspace with a handful of open criticals.
 
 ## Browsing Findings
 

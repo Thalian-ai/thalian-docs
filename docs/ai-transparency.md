@@ -37,6 +37,7 @@ When the AI engine runs, a system prompt is assembled from your workspace data. 
 | **Findings** | Open security findings (title, severity, affected entity) | To prioritize remediation and explain risk context |
 | **Audit events** | Recent sign-in events, admin actions, forwarding rules | To detect behavioral anomalies and support root-cause analysis |
 | **Integration metadata** | Connected platform names, sync status | To scope answers to your actual environment |
+| **Workspace memory** | Facts the AI has previously observed about your organization (categories: `org_context`, `accepted_risk`, `dismissed_pattern`, `integration_note`, `remediation_preference`) | To preserve context across chat sessions so you do not have to repeat preferences and accepted-risk decisions every time |
 
 ### What Is Excluded
 
@@ -57,7 +58,12 @@ The AI generates the following types of output, all scoped to your workspace:
 - **Contract extraction** — structured fields (vendor, cost, renewal date, etc.) from uploaded documents
 - **Chat responses** — answers to natural-language questions about your environment
 
-AI outputs are stored within your workspace (in the `ai_messages` table) and are subject to your plan's data retention period.
+AI outputs are stored within your workspace and are subject to your plan's data retention period. Two storage surfaces:
+
+- **`ai_messages`** — chat conversation history (the prompts you typed and the responses the AI returned)
+- **`workspace_ai_memory`** — persistent facts the AI has observed about your organization across chat sessions. The AI writes to this table via two tools (`save_workspace_memory`, `delete_workspace_memory`); both tool calls are recorded in your audit log as `ai_memory_saved` and `ai_memory_deleted` actions
+
+Both tables are scoped to a single workspace via Row Level Security. Workspace deletion removes all rows in both tables via cascade. Both tables follow your plan's standard data retention period (`7` days on Free, `365` days on Pro and Trial, unlimited on Enterprise).
 
 ## 5. Zero-Training Guarantee
 
@@ -121,6 +127,7 @@ AI-generated findings and recommendations are based on the data available in you
 |---|---|
 | **Disconnect an integration** | Stops data from that platform from entering future AI prompts |
 | **Delete AI conversation history** | Available via **Settings** or automatically enforced by your plan's retention period |
+| **Delete workspace memory entries** | Ask the AI in chat: *"Delete memory entry abc12345"*. Or ask the AI to forget a category: *"Forget all dismissed patterns."* Plan retention also deletes old entries automatically |
 | **Require approval for write actions** | Enabled by default for high-impact actions; configurable per workspace |
 | **Restrict AI access by role** | Viewer and Auditor roles can see findings but cannot initiate AI-driven remediation |
 | **Export your data** | Full workspace export (JSON) available from **Settings** — includes AI conversation history |

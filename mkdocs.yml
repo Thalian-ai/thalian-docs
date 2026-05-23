@@ -91,6 +91,7 @@ nav:
   - Compliance & Reporting:
     - Compliance: compliance.md
     - Reports & Audit: reports-and-audit.md
+    - Audit Log Chain of Custody: audit-log-chain-of-custody.md
     - Policies & Impact Analysis: policies-and-planning.md
   - Administration:
     - Settings & Admin: settings-and-admin.md

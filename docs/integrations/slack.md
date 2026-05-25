@@ -51,6 +51,18 @@ Thalian sends formatted Slack messages for each new finding that meets your thre
 
 Thalian does not read or sync messages, files, or channel history.
 
+## Bot and App Integration Discovery
+
+Slack workspaces accumulate bot and app integrations over time, each installed via OAuth and able to read channel messages, post on behalf of users, or relay data to an external service. Most are installed by a single employee in a few clicks with no IT review.
+
+Thalian inventories every bot and app in your Slack workspace and tracks them as **non-human identities** (service accounts) on the **Identities** page, so you can see what has access and decide what to keep.
+
+- **Bot inventory** — bots and app users appear as service accounts, separate from your human members. They never count toward your plan identity limit.
+- **Unreviewed bot sprawl** — when five or more bot integrations are active, Thalian raises a finding: *"Slack has 12 active bot integrations, none reviewed."* The finding lists every bot so you can confirm an owner and a purpose for each, then remove unrecognized ones from **Slack Admin** → **Manage apps**.
+- **AI agent triage** — bots whose names match known AI agent frameworks (Cursor, Gumloop, CrewAI, n8n, and others) are surfaced under AI governance with the finding *"possible AI agent, unclassified."* Classify them with the **Account type** dropdown in identity detail so Thalian applies the correct non-human-identity governance rules.
+
+Standard Slack has no API to remove a bot, so remediation for these findings is review and notification only. Removal is done from the Slack admin console.
+
 ---
 
 ## Slack Enterprise Grid

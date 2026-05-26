@@ -71,6 +71,25 @@ If your organization restricts OAuth consent flows, you can connect using applic
 !!! note "No reconnection required for existing connections"
     All Phase 2 data (Identity Protection, PIM, admin auth methods, guest policy) is accessible with the scopes granted during initial OAuth setup. Existing Entra connections do not need to be reconnected.
 
+## AI tool detection
+
+After syncing Entra, Thalian inspects every enterprise application's delegated OAuth grants and matches the app name against a known AI tool catalog (Claude, ChatGPT, Cursor, Gumloop, Microsoft Copilot, Perplexity, n8n, Zapier, and 30+ others). AI tools surface in the AI Governance category with their granted Microsoft Graph scopes attached.
+
+### Findings that fire on Entra-sourced AI tools
+
+- **AI tool has access to corporate data** (high, critical at five or more tools): an unsanctioned AI tool holds read access to Mail, Files, Sites, Calendars, or Contacts via Microsoft Graph delegated scopes.
+- **AI tool with write access to email or files** (critical): an AI tool holds `Files.ReadWrite`, `Sites.ReadWrite`, `Mail.ReadWrite`, or `Mail.Send` scopes.
+- **Unsanctioned AI tool in widespread use** (medium, tiers up with adoption): an AI tool is granted to ten or more users without being sanctioned.
+- **Terminated employee AI tool still has data access** (high): an offboarded employee retains active AI tool grants. Requires an HR integration (Rippling, BambooHR, or Workday) connected for the cross-platform join.
+
+### Scope coverage
+
+Findings key on whichever delegated scopes the Entra OAuth grant includes. Detection covers Google OAuth scope vocabulary (`drive`, `gmail`, `mail`, `calendar`, `contacts`, `docs`, `sheets`, `slides`) and Microsoft Graph delegated scope vocabulary (`Mail.*`, `Files.*`, `Sites.*`, `Calendars.*`, `Contacts.*`). App-only application permissions granted via `appRoleAssignments` are not yet evaluated.
+
+### No re-authorization required
+
+The existing `Directory.Read.All` scope (already requested during initial connect) covers reading `oauth2PermissionGrants`. Existing Entra connections begin surfacing AI tool findings on the next sync without any admin action.
+
 ---
 
 *For a full list of supported platforms, see [Integrations Guide](../integrations-guide.md).*

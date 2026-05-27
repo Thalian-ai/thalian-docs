@@ -168,7 +168,7 @@ These docs aggregate state that ships in other repos. When any of the following 
 
 | Upstream change | Pages to update |
 |------------------|-----------------|
-| New rule or rule-count change in `thalian-beta` | `findings-and-remediation.md`, `index.md` (if hero count is shown), `changelog.md` |
+| New rule or rule-count change in `thalian-prod` | `findings-and-remediation.md`, `index.md` (if hero count is shown), `changelog.md` |
 | New integration | `integrations/<platform>.md`, `integrations/index.md` table, `integrations-guide.md`, `changelog.md` |
 | Plan limits / data retention change | `getting-started.md`, `index.md`, relevant policy doc (privacy, DPA) |
 | AI model change | `ai-transparency.md`, `data-processing-agreement.md` |
@@ -184,7 +184,7 @@ These docs aggregate state that ships in other repos. When any of the following 
 - **Changelog: rule counts** — bumped 316→320→341→390→400+ across April 2026 entries (`4fabf99`, `f0abb43`, `e2562c5`, `a0a984b`); accuracy audit caught Kandji→Iru rename.
 - **April 2026 release post** (`ecbf400`) + multiple changelog entries: bulk app policy actions (`c73dace`), workspace risk score rebuild (`8472513`), Google-only SSO ratio fix (`1caa315`), webhook destination picker + event improvements (`02a824d`), MFA enforcement fix (`cff0446`), Compliance Trend multi-metric improvement (`9db6062`), posture timeline + coverage widget (`eee4b59`), attack surface map + grouped findings + geolocation + Slack App Directory (`b953c25`), bulk app policy actions (`6c8e12f`), Compliance Trend SOC 2 / ISO 27001 score updates (`9c1ca2d`), April 25 release post (`5675a4d`), Okta AI agent identity detection (`11f0707`), AI chat grouped finding context + `remove_admin_role` (`a01be76`).
 - **Pro retention bump** (`f821017`) — 90 days → 1 year (mirrors product change).
-- **Anthropic retention clarification + Enterprise model bump to Claude Opus 4.7** (`48ab9d6`) — keep `ai-transparency.md` synced with `thalian-beta` model pins.
+- **Anthropic retention clarification + Enterprise model bump to Claude Opus 4.7** (`48ab9d6`) — keep `ai-transparency.md` synced with `thalian-prod` model pins.
 - **Sub-processor registry + AI tool detection docs + developers page** (`a4a6d6a`).
 - **Getting Help support hub** (`20efb...` / `20fffd8`) — new `support.md` page.
 - **Em-dash and AI-language sweep** (`84c1188`) — style baseline.

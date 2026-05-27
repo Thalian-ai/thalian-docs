@@ -30,6 +30,7 @@ Step-by-step guide to connecting Jamf Pro to Thalian for Apple device management
 - **Mac/iOS devices** — hardware inventory, OS versions, and management status
 - **Compliance** — smart group membership indicating compliance state
 - **Configurations** — configuration profiles and their deployment status
+- **Installed applications (AI tool detection)** — per-computer application inventory pulled via the `APPLICATIONS` section on `/api/v1/computers-inventory` (inline with the existing device sync — no extra API calls or rate-limit pressure). Each app is classified against a closed catalog of 30+ AI tools (Cursor, Claude desktop, ChatGPT desktop, Ollama, LM Studio, and others). Classified installs surface the **AI tool installed on managed device** finding and feed three cross-platform compound rules that join the device install with the identity's OAuth grants and IDP classification. The `APPLICATIONS` section is included in the existing read role's scope — no re-consent or permission change required for already-connected Jamf instances.
 
 ---
 

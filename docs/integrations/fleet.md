@@ -85,6 +85,7 @@ Thalian syncs automatically every hour. You can also trigger a manual sync from 
 - **Disk encryption** — whether FileVault, BitLocker, or Linux disk encryption is verified or enforced
 - **MDM enrollment** — whether the host is enrolled manually or automatically
 - **Device ownership** — Fleet's `primary_user` field is used to correlate devices to identities across your other integrations (e.g., matching a Fleet host to the same person's Okta account or GitHub access)
+- **Installed software (AI tool detection)** — per-host installed application inventory pulled via Fleet's `/api/v1/fleet/hosts/{id}/software` endpoint. Each app is classified against a closed catalog of 30+ AI tools (Cursor, Claude desktop, ChatGPT desktop, Ollama, LM Studio, and others). Classified installs surface the **AI tool installed on managed device** finding and feed three cross-platform compound rules that join the device install with the identity's OAuth grants and IDP classification. Software inventory access is included in the existing API scope — no re-consent or configuration change required.
 
 ---
 

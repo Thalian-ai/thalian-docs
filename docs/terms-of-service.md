@@ -1,8 +1,8 @@
 # Terms of Service
 
-**Thalian, LLC**
-**Effective Date:** April 16, 2026
-**Last Reviewed:** April 16, 2026
+**Thalian, Inc.**
+**Effective Date:** May 28, 2026
+**Last Reviewed:** May 28, 2026
 
 ---
 
@@ -109,7 +109,7 @@ You are responsible for: (a) maintaining the security of your account credential
 
 ## 11. Limitation of Liability
 
-To the maximum extent permitted by law, Thalian, LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, or goodwill.
+To the maximum extent permitted by law, Thalian, Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, or goodwill.
 
 Our total aggregate liability for any claims arising from or related to the Service shall not exceed the amount you paid us in the 12 months preceding the claim.
 
@@ -138,11 +138,11 @@ The Service may be subject to United States export control laws and regulations.
 
 ## 16. Governing Law
 
-These Terms are governed by and construed in accordance with the laws of the State of Texas, without regard to conflict of law principles.
+These Terms are governed by and construed in accordance with the laws of the State of Delaware, without regard to conflict of law principles.
 
 ## 17. Dispute Resolution
 
-Any dispute arising out of or relating to these Terms or the Service shall first be attempted to be resolved through good-faith negotiation between the parties. If the dispute cannot be resolved within 30 days of written notice, either party may pursue binding arbitration under the rules of the American Arbitration Association in Texas. To the fullest extent permitted by law, you waive the right to participate in class-action lawsuits or class-wide arbitration related to these Terms or the Service.
+Any dispute arising out of or relating to these Terms or the Service shall first be attempted to be resolved through good-faith negotiation between the parties. If the dispute cannot be resolved within 30 days of written notice, either party may pursue binding arbitration under the rules of the American Arbitration Association in Delaware. To the fullest extent permitted by law, you waive the right to participate in class-action lawsuits or class-wide arbitration related to these Terms or the Service.
 
 ## 18. Contact
 

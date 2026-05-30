@@ -1,8 +1,8 @@
 # Information Security Policy
 
-**Thalian, LLC**
-**Effective Date:** April 16, 2026
-**Last Reviewed:** April 16, 2026
+**Thalian, Inc.**
+**Effective Date:** May 28, 2026
+**Last Reviewed:** May 28, 2026
 **Owner:** Engineering & Security Team
 **Classification:** Public
 

@@ -1,11 +1,11 @@
 ---
 title: Sub-Processor Registry
-last_updated: April 16, 2026
+last_updated: May 28, 2026
 ---
 
 # Sub-Processor Registry
 
-This is the canonical list of third-party sub-processors that Thalian, LLC engages to process personal data on behalf of customers. All customer-facing legal documents (Terms of Service, Privacy Policy, Data Processing Agreement, and Security & Trust page) derive their sub-processor disclosures from this registry.
+This is the canonical list of third-party sub-processors that Thalian, Inc. engages to process personal data on behalf of customers. All customer-facing legal documents (Terms of Service, Privacy Policy, Data Processing Agreement, and Security & Trust page) derive their sub-processor disclosures from this registry.
 
 **Update process:** When adding or replacing a sub-processor, update this file first, then propagate changes to all documents listed above. Enterprise customers must receive 14 days' advance notice before any addition or replacement takes effect.
 

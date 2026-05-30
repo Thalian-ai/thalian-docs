@@ -1,14 +1,14 @@
 # Privacy Policy
 
-**Thalian, LLC**
-**Effective Date:** April 16, 2026
-**Last Reviewed:** April 16, 2026
+**Thalian, Inc.**
+**Effective Date:** May 28, 2026
+**Last Reviewed:** May 28, 2026
 
 ---
 
 ## 1. Introduction
 
-This Privacy Policy describes how Thalian, LLC ("Thalian," "we," "us," or "our") collects, uses, and protects information when you use the Thalian platform ("Service"). We are committed to protecting your privacy and handling your data transparently.
+This Privacy Policy describes how Thalian, Inc. ("Thalian," "we," "us," or "our") collects, uses, and protects information when you use the Thalian platform ("Service"). We are committed to protecting your privacy and handling your data transparently.
 
 ## 2. Information We Collect
 

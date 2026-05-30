@@ -1,21 +1,21 @@
 # Data Processing Agreement
 
-**Thalian, LLC**
-**Effective Date:** April 16, 2026
-**Last Reviewed:** April 16, 2026
+**Thalian, Inc.**
+**Effective Date:** May 28, 2026
+**Last Reviewed:** May 28, 2026
 
 ---
 
 ## 1. Introduction
 
-This Data Processing Agreement ("DPA") supplements the [Terms of Service](./terms-of-service.md) and governs the processing of personal data by Thalian, LLC ("Processor") on behalf of the customer organization ("Controller") when using the Thalian platform ("Service").
+This Data Processing Agreement ("DPA") supplements the [Terms of Service](./terms-of-service.md) and governs the processing of personal data by Thalian, Inc. ("Processor") on behalf of the customer organization ("Controller") when using the Thalian platform ("Service").
 
 This DPA applies where Thalian processes personal data on the Controller's behalf in the course of providing the Service. For purposes of this DPA, "personal data," "processing," "data subject," and "supervisory authority" have the meanings given to them in the EU General Data Protection Regulation (GDPR) or equivalent applicable data protection law.
 
 ## 2. Roles
 
 - **Controller:** The customer organization that connects integrations and manages workspace data
-- **Processor:** Thalian, LLC, which processes data on the Controller's behalf to provide the Service
+- **Processor:** Thalian, Inc., which processes data on the Controller's behalf to provide the Service
 
 ## 3. Scope of Processing
 

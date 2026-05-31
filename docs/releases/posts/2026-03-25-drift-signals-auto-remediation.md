@@ -27,4 +27,4 @@ Opening any identity with open findings now shows a "Risk Summary" block powered
 
 The Applications page Unsanctioned tab now shows inline scope risk chips (e.g. "Writes email", "Reads calendar files") sourced from server-side OAuth scope interpretation.
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-25)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-25)

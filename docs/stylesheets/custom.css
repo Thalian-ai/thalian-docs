@@ -485,7 +485,7 @@
 }
 
 /* GitHub link in individual posts */
-.md-typeset a[href*="github.com/tori-mf13/thalian-beta/releases/tag"] {
+.md-typeset a[href*="github.com/Thalian-ai/thalian/releases/tag"] {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -499,7 +499,7 @@
   transition: all 0.15s ease;
 }
 
-.md-typeset a[href*="github.com/tori-mf13/thalian-beta/releases/tag"]:hover {
+.md-typeset a[href*="github.com/Thalian-ai/thalian/releases/tag"]:hover {
   color: var(--t-text);
   border-color: var(--t-border-bright);
   background: var(--t-surface);

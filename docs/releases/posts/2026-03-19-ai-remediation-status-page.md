@@ -37,4 +37,4 @@ Alert notifications now fire only on new findings; recurring open findings no lo
 
 - Status page moved from an in-app route to a standalone Cloudflare Worker, accessible without authentication
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-19)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-19)

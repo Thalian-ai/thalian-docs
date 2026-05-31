@@ -28,4 +28,4 @@ Security alerts sent to Slack now include Dismiss and Snooze 7d buttons directly
 
 Okta sync and all 7 Okta remediation functions now authenticate using OAuth client credentials instead of a static SSWS API token. If you have Okta connected, you'll need to reconnect with your Okta Client ID and Client Secret. The new flow is more secure and handles token rotation automatically.
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-29)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-29)

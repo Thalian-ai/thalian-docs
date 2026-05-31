@@ -42,4 +42,4 @@ Stat pills on connected integration cards (e.g. "42 identities", "7 findings") n
 - **Compliance deep links** — "View findings" links inside expanded compliance controls now navigate correctly
 - **AI chat MFA/login accuracy** — The AI assistant no longer reports MFA or login status for platforms that don't expose that data
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-30)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-30)

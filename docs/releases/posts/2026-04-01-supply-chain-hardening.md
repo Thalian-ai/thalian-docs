@@ -16,4 +16,4 @@ We've additionally hardened our build pipeline:
 - All dependency versions are pinned exactly
 - Lockfile integrity validation has been added to CI
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-04-01)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-04-01)

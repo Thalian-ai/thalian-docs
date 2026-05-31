@@ -32,4 +32,4 @@ View all data changes (created, updated, deleted) detected during integration sy
 - **MFA enforcement** — Workspace admins can now require TOTP-based MFA for all members
 - **MTTR tracking** — Mean Time to Remediate metrics by severity, with trend charts
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-02-01)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-02-01)

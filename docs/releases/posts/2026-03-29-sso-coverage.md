@@ -51,4 +51,4 @@ AI Brief and AI Chat now trigger a background sync for any integration that hasn
 
 - **Signup workspace naming** — Personal email signups now get "Personal Workspace" instead of the email domain
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-29)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-29)

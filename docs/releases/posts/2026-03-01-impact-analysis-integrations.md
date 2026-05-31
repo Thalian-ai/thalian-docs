@@ -51,4 +51,4 @@ Point-in-time posture snapshots captured after each analysis run, powering trend
 - **IP allowlisting** — Restrict API access to approved IP addresses or CIDR ranges
 - **Session timeout options** — Configurable session durations (1h, 4h, 8h, 24h, 72h)
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-01)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-01)

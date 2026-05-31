@@ -30,4 +30,4 @@ IT and security teams can now run structured user access certification campaigns
 
 After every sync, Claude Sonnet now reviews all new findings and decides which ones need action, what action to take, and why. Queued actions include a "Claude's reasoning" block — e.g., "This account hasn't logged into the IDP in 47 days but retains admin roles in Salesforce and GitHub. Suspending reduces blast radius while the offboarding gap is investigated." The planner sequences actions correctly, groups multi-finding actions on the same identity, and skips low-priority findings.
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-28)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-28)

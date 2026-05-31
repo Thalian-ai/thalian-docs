@@ -19,4 +19,4 @@ The Thalian platform is live with support for 15 initial integrations, 79 analys
 - **Immutable audit log** with SHA-256 integrity hashing
 - **Free, Pro, and Enterprise plans** with 30-day Pro trial for new workspaces
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-01-15)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-01-15)

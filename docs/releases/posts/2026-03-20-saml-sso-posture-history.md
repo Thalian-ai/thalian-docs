@@ -42,4 +42,4 @@ The "Risk Score" stat has been replaced with a unified **Security Posture** scor
 - **Slack alert deduplication** — Two compounding bugs causing alerts to re-fire on every sync are now fixed. Dedup keys use stable external identifiers, and email app sync only removes genuinely absent apps.
 - **Integration sync failures on status page** — Failed syncs now correctly flip integration status to `error`, which the status page health check reads. Integrations that haven't synced in 10+ hours are flagged as degraded.
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-20)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-20)

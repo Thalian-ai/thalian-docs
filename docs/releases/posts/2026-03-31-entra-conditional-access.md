@@ -40,4 +40,4 @@ GCP IAM now detects 4 new privilege and configuration risks beyond IDP gap detec
 
 These rules fire even when Google Workspace is the IDP.
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-31)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-31)

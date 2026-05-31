@@ -68,4 +68,4 @@ After connecting your 2nd or later integration, a dedicated interstitial shows t
 - **Google OAuth app deduplication**: OAuth apps now deduplicated by normalized name
 - **Scoring consistency**: All scoring imports cleaned up to use a single source of truth
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-26)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-26)

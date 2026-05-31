@@ -23,4 +23,4 @@ The intelligence engine now understands that the same email address across multi
 - **Shadow IT findings no longer duplicated** — Apps already covered by the more specific sensitive-scope finding are now excluded from the general unvetted apps finding.
 - **Impact analysis scores now match Security Posture** — The "Current" and "After action" scores in the simulate panel now use the same sigmoid-normalized formula as the dashboard.
 
-[View on GitHub](https://github.com/tori-mf13/thalian-beta/releases/tag/2026-03-21)
+[View on GitHub](https://github.com/Thalian-ai/thalian/releases/tag/2026-03-21)

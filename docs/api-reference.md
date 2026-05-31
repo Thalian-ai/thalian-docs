@@ -318,6 +318,7 @@ Triggers a background sync for all connected integrations. Returns immediately â
 |---|---|---|---|
 | `workspaceId` | UUID | Yes | |
 | `name` | string | Yes | 1â€“100 characters. Max 10 active keys per workspace. |
+| `scope` | string | No | `read` or `write`. Default `read`. A `write` key can call action endpoints; a `read` key is limited to `GET`. |
 
 **POST response:**
 
@@ -330,7 +331,7 @@ Triggers a background sync for all connected integrations. Returns immediately â
 }
 ```
 
-The full key is returned once and never stored in plaintext. Save it immediately.
+The full key is returned once and never stored in plaintext. Save it immediately. Minting a key requires the **Manage workspace** permission, and the chosen scope is recorded in the audit log.
 
 **DELETE /api/api-keys â€” request body:**
 
@@ -362,7 +363,7 @@ Pass a key generated in **Settings â†’ API Keys** as a Bearer token:
 Authorization: Bearer thal_your_key_here
 ```
 
-The key encodes its workspace. Every response is scoped to that workspace, and there is no `workspaceId` parameter to override it, so a key can never read another workspace's data. Read-scope keys (the default) may call these `GET` endpoints. A request whose HTTP method is not granted by the key's scope receives `403`.
+The key encodes its workspace. Every response is scoped to that workspace, and there is no `workspaceId` parameter to override it, so a key can never reach another workspace's data. Read-scope keys (the default) may call the `GET` endpoints; write-scope keys may also call action endpoints such as `POST /api/v1/scan`. A request whose HTTP method is not granted by the key's scope receives `403`.
 
 ### Headless endpoints
 
@@ -370,6 +371,7 @@ The key encodes its workspace. Every response is scoped to that workspace, and t
 |---|---|---|---|
 | `GET` | `/api/v1/findings` | Open findings with a curated field set | read |
 | `GET` | `/api/v1/inventory` | Identities, applications, or devices | read |
+| `POST` | `/api/v1/scan` | Trigger a fresh analysis of the workspace | write |
 
 ### GET /api/v1/findings
 
@@ -456,6 +458,31 @@ Each collection returns a stable, versioned field subset. The raw upstream paylo
   }
 }
 ```
+
+### POST /api/v1/scan
+
+Triggers a fresh analysis of the workspace, the same run the web UI performs when you click **Re-analyze**. Requires a **write-scope** key. The request takes no body; the workspace is derived from the key.
+
+A scan can be triggered at most once every 60 seconds per workspace. A request inside that window returns `429` with a `retryAfter` value in seconds. The call blocks until analysis completes, then returns the findings count. Every successful trigger is recorded in the audit log against the calling key.
+
+**Response:**
+
+```json
+{
+  "status": "completed",
+  "findings": 86,
+  "analyzed_at": "2026-05-31T23:40:00Z"
+}
+```
+
+`findings` is the number of open findings after the run, or `null` when the count is unavailable.
+
+| Status | Meaning |
+|---|---|
+| `200` | Analysis completed |
+| `403` | Key lacks `write` scope |
+| `429` | Cooldown active; retry after `retryAfter` seconds |
+| `502` | Analysis backend failed |
 
 ---
 

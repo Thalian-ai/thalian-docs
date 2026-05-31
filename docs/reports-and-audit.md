@@ -69,6 +69,28 @@ Complete, immutable record of all actions taken in your workspace:
 - **Export:** Download the full audit log as JSON via the export button, for SIEM integration or compliance archival
 - **Immutable:** Audit log entries are never deleted, regardless of workspace plan or data retention settings. Minimum 365-day retention guaranteed
 
+## Executive PDF Report
+
+The **PDF Report** button at the top of the **Reports** page generates a board-ready **Executive Security Posture Report** as a downloadable PDF, suitable for leadership review or audit distribution. It captures a point-in-time snapshot of your workspace:
+
+- **Posture grade:** A letter grade (A through F) and your normalized risk score
+- **Findings by severity:** Open critical, high, medium, and low counts
+- **Coverage metrics:** MFA coverage, device compliance, encryption, and SSO coverage
+- **AI Governance Trajectory:** Non-human identity trend lines with 30-day projections (see below)
+- **Remediation progress:** Actions completed, pending, and failed
+- **Top open findings:** The highest-severity open findings with category labels
+- **Connected integrations:** The platforms feeding the report
+
+### AI Governance Trajectory
+
+When your workspace has non-human identity (NHI) data, the report includes an **AI Governance Trajectory** section that projects how your AI exposure is trending. Three signals are tracked:
+
+- **Non-human identities:** AI agents, bots, and service accounts
+- **AI governance findings:** Open findings on the AI governance wedge
+- **Ungoverned / stale keys:** API keys and tokens with no recent governance
+
+Each signal shows its current count plus a 30-day projection derived from a least-squares fit over your drift snapshot history, so a steadily climbing population reads as `42 → 61 over 21d (▲ 45%) · ~78 in 30d`. The section appears only when non-human identity data exists, and its projection matches the **AI Governance Trajectory** chart on the dashboard.
+
 ## Risk Score Calculation
 
 The risk score displayed on the dashboard and tracked in posture reports is calculated in two steps:

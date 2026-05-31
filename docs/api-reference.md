@@ -350,6 +350,115 @@ The full key is returned once and never stored in plaintext. Save it immediately
 
 ---
 
+## Headless API (`/api/v1`)
+
+The `/api/v1` surface exposes read-only findings and inventory data for programmatic consumers such as CI pipelines, scripts, and external tools, without the web UI. It uses the same `thal_*` API keys as the [MCP API](#mcp-api-api-key-auth) and is always scoped to the workspace the key belongs to.
+
+### Authentication
+
+Pass a key generated in **Settings → API Keys** as a Bearer token:
+
+```
+Authorization: Bearer thal_your_key_here
+```
+
+The key encodes its workspace. Every response is scoped to that workspace, and there is no `workspaceId` parameter to override it, so a key can never read another workspace's data. Read-scope keys (the default) may call these `GET` endpoints. A request whose HTTP method is not granted by the key's scope receives `403`.
+
+### Headless endpoints
+
+| Method | Path | Description | Scope |
+|---|---|---|---|
+| `GET` | `/api/v1/findings` | Open findings with a curated field set | read |
+| `GET` | `/api/v1/inventory` | Identities, applications, or devices | read |
+
+### GET /api/v1/findings
+
+**Query parameters:**
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `status` | string | No | Finding status. Default `"open"`. |
+| `severity` | string | No | One of `critical`, `high`, `medium`, `low`. Omit for all severities. Invalid values return `400`. |
+| `limit` | integer | No | 1–200, default `100` |
+| `offset` | integer | No | Pagination offset, default `0` |
+
+Findings closed only because their source integration was removed are excluded. Results are ordered by `created_at` descending.
+
+**Response:**
+
+```json
+{
+  "findings": [
+    {
+      "id": "uuid",
+      "finding_key": "string",
+      "rule_id": "string",
+      "title": "string",
+      "severity": "high",
+      "category": "string",
+      "status": "open",
+      "affected_entities": {},
+      "source_integrations": ["okta"],
+      "created_at": "2026-04-15T12:00:00Z",
+      "updated_at": "2026-04-15T12:00:00Z"
+    }
+  ],
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "total": 86
+  }
+}
+```
+
+`pagination.total` is the count of findings matching the filter across all pages, or `null` when the count is unavailable.
+
+### GET /api/v1/inventory
+
+**Query parameters:**
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `type` | string | No | `identities`, `applications`, or `devices`. Default `identities`. Invalid values return `400`. |
+| `limit` | integer | No | 1–200, default `100` |
+| `offset` | integer | No | Pagination offset, default `0` |
+
+Each collection returns a stable, versioned field subset. The raw upstream payload (`raw_data`) and internal sync columns are never exposed, so the public contract stays decoupled from the underlying schema. Results are ordered by `created_at` descending.
+
+**`identities` fields:** `id`, `external_id`, `email`, `display_name`, `department`, `title`, `identity_type`, `status`, `mfa_enabled`, `last_login_at`, `created_at`, `updated_at`
+
+**`applications` fields:** `id`, `external_id`, `name`, `category`, `sso_status`, `auth_method`, `assigned_user_count`, `license_count`, `owner`, `sanction_status`, `discovery_source`, `created_at`, `updated_at`
+
+**`devices` fields:** `id`, `external_id`, `device_name`, `device_type`, `platform`, `os_version`, `compliance_status`, `encryption_enabled`, `mdm_enrolled`, `owner_email`, `last_check_in_at`, `created_at`, `updated_at`
+
+**Response:**
+
+```json
+{
+  "type": "identities",
+  "items": [
+    {
+      "id": "uuid",
+      "external_id": "string",
+      "email": "alice@example.com",
+      "display_name": "string",
+      "identity_type": "user",
+      "status": "active",
+      "mfa_enabled": true,
+      "created_at": "2026-04-15T12:00:00Z",
+      "updated_at": "2026-04-15T12:00:00Z"
+    }
+  ],
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "total": 120
+  }
+}
+```
+
+---
+
 ## Endpoints
 
 ### Health

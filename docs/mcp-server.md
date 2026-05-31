@@ -35,6 +35,7 @@ These tools require a **write-scope API key** (see [API keys](#api-keys)).
 | `dismiss_finding` | Dismiss an open finding |
 | `remediate_finding` | Queue a remediation action for an open finding |
 | `set_app_policy` | Set an application's policy status to sanctioned, unauthorized, blocked, or clear it |
+| `classify_identity` | Classify an identity by email as `user`, `service_account`, `shared_mailbox`, `group`, `bot`, or `ai_agent` |
 
 ## Setup
 
@@ -88,7 +89,7 @@ After saving the config, restart the client. You can verify the connection is wo
 
 By default, API keys are **read-only** — they can call all query tools but cannot modify workspace data.
 
-To use action tools (`trigger_sync`, `snooze_finding`, `dismiss_finding`, `remediate_finding`, `set_app_policy`), create a **write-scope** key in **Settings** → **API Keys** and enable the write permission toggle. Write-scope keys are recorded in the audit log on every mutating operation.
+To use action tools (`trigger_sync`, `snooze_finding`, `dismiss_finding`, `remediate_finding`, `set_app_policy`, `classify_identity`), create a **write-scope** key in **Settings** → **API Keys** and enable the write permission toggle. Write-scope keys are recorded in the audit log on every mutating operation.
 
 Store write-scope keys with the same care as admin credentials.
 
@@ -101,7 +102,7 @@ The key may have been revoked or copied incorrectly. Revoke it in Settings and c
 Restart the client after editing the config file. Check that the JSON is valid (no trailing commas).
 
 **"Write scope required" on action tools**
-Action tools (`trigger_sync`, `snooze_finding`, `dismiss_finding`, `remediate_finding`, `set_app_policy`) require a write-scope key. Create a new key with write permissions enabled in **Settings** → **API Keys**.
+Action tools (`trigger_sync`, `snooze_finding`, `dismiss_finding`, `remediate_finding`, `set_app_policy`, `classify_identity`) require a write-scope key. Create a new key with write permissions enabled in **Settings** → **API Keys**.
 
 ## Security
 

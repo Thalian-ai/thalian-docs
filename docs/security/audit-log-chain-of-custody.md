@@ -138,8 +138,4 @@ A new chain version would be introduced via a cutover row with `action = 'audit_
 
 ## References
 
-- Migration: `thalian-beta/supabase/migrations/20260523_audit_log_chain_root.sql`
-- Verifier RPC: `thalian-beta/supabase/migrations/20260523b_audit_chain_verifier_rpc.sql`
-- Export endpoint: `thalian-beta/functions/api/audit/export.js`
-- Python verifier: `thalian-public/tools/verify-audit-export.py`
-- Audit helper: `thalian-beta/functions/api/_audit.js`
+- Python verifier: [github.com/thalian-ai/thalian/blob/main/tools/verify-audit-export.py](https://github.com/thalian-ai/thalian/blob/main/tools/verify-audit-export.py)

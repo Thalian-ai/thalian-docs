@@ -107,6 +107,7 @@ nav:
   - Support: support.md
   - Legal & Security:
     - Information Security Policy: information-security-policy.md
+    - Audit Log Chain of Custody: security/audit-log-chain-of-custody.md
     - AI Transparency: ai-transparency.md
     - Terms of Service: terms-of-service.md
     - Privacy Policy: privacy-policy.md

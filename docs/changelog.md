@@ -4,6 +4,14 @@ Notable changes, new features, and fixes for the Thalian platform.
 
 ---
 
+## June 2026
+
+### Fixes
+
+- **Crash on the Findings page for workspaces with AI agent findings fixed.** Navigating to the Findings page (`/findings`), or clicking the "assign owners" link from the dashboard, could hard-crash the page for workspaces where Thalian had detected AI agent or non-human identity findings. The crash was caused by a Terser minification reordering in the production bundle. Fixed.
+
+---
+
 ## May 2026
 
 ### New Features

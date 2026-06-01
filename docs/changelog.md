@@ -6,6 +6,12 @@ Notable changes, new features, and fixes for the Thalian platform.
 
 ## June 2026
 
+### Improvements
+
+- **Cross-entity navigation.** Every identity, device, and application row in the inventory now carries a quick-navigate button that opens the Findings page (`/findings`) pre-filtered to that entity's open findings. On the Applications page the user-count chip links to the Identities page (`/identities`) filtered to users of that application, so you can immediately see who has access without manually searching. The entity detail panel also gains a **View all findings** link in the Findings section header, pointing to the same filtered view. No separate filter setup is required -- clicking the button lands you directly on the right slice.
+
+- **AI chat context pre-loading.** Opening the AI chat via a link that includes `?context_entity=` in the URL automatically sends a context primer (`"Tell me about [entity]"`) so the assistant is already scoped to the right identity, device, or application when you arrive. Entity detail panels and finding cards that link to AI chat use this parameter, so the chat is ready to answer questions about the specific entity without a manual prompt.
+
 ### Fixes
 
 - **Crash on the Findings page for workspaces with AI agent findings fixed.** Navigating to the Findings page (`/findings`), or clicking the "assign owners" link from the dashboard, could hard-crash the page for workspaces where Thalian had detected AI agent or non-human identity findings. The crash was caused by a Terser minification reordering in the production bundle. Fixed.

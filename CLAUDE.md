@@ -177,6 +177,25 @@ These docs aggregate state that ships in other repos. When any of the following 
 
 ### Recent doc work (since last CLAUDE.md sync, 2026-04-05)
 
+#### May–June 2026
+
+- **Headless `/api/v1` documented** (`8d3674c` 2026-05-31, `fd81aa1` 2026-05-31) — `api-reference.md` now covers `GET /api/v1/findings`, `GET /api/v1/inventory`, `POST /api/v1/scan`, plus the `thal_*` key model (read-default / write-opt-in). Workspace is server-derived from the key; default-deny scope gate.
+- **Identity classification triage surface + `classify_identity` MCP tool** (`ff92a68` 2026-05-31) — added to MCP server reference + findings/remediation flow.
+- **Scope-aware sanction Phase 2** (`2121110` 2026-05-31) — changelog entry for `sanction::scope_drift` + `re_attest`/`revoke` sub-actions.
+- **Audit log chain of custody page** (`3ec65b8`, `e5ff2f7` 2026-06-01) — new security page added to nav; internal file paths scrubbed per redaction pass.
+- **Deeplinks Phase 2 + AI chat context** (`1819964` 2026-06-01) — changelog entry for cross-entity navigation affordances.
+- **Findings page crash fix** (`d422fd0` 2026-06-01) — June 2026 changelog opener.
+- **Executive PDF report AI Governance Trajectory section** (`33e2ab4` 2026-05-31) + **AI agent vs service account actor badges** (`02ae4dd` 2026-05-31) + **readable OAuth app labels** (`89efc2f` 2026-05-31).
+- **RPA vendors catalogued as AI Automation** (`dd8080a` 2026-05-31).
+- **Null-owner NHIs now fire `ai_agent_orphaned_owner`** (`81f262b` 2026-05-30) — closes the orphan-owner detection gap for missing-`created_by` agents.
+- **Re-entity Thalian, LLC (Texas) → Thalian, Inc. (Delaware)** (`6032bf0` 2026-05-29) — older "Texas LLC" references in legal pages are stale; treat the entity name + governing law as updated everywhere.
+- **GitHub release-post links repointed to `Thalian-ai/thalian`** (`f9b64ea` 2026-05-31) — matches the `thalian-beta` → `thalian-prod` repo rename on 2026-05-26.
+- **MCP gateway detection Phase 3 changelog** (`d81d79e` 2026-05-28) — `mcp_unsanctioned`, `mcp_broad_scope`, `mcp_orphan_owner` rules; reads the OAuth-app behavioral fingerprint from Phase 2.
+
+When updating this section: keep the per-PR / per-commit hash links, group by month, and prune entries older than 6 months on the next pass to keep the file scannable.
+
+#### Pre-May 2026 (historical)
+
 - **Homepage redesign** (`dbc8d3e`, `9686683`, `f76d958`) — card-grid layout on `index.md`; sidebars hidden on home page for full-width grid; CDN cache-busted via `custom.css` query string after deploy.
 - **API reference expansion** (`245f368`) — full request/response schemas, plus accuracy fixes (Workspace ONE vendor name corrected in `a43e438`).
 - **New integration guides:** GitLab (`12ecfba`), PingOne (`130266c`), Datadog (`4ff3157`).

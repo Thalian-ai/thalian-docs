@@ -14,6 +14,12 @@ Notable changes, new features, and fixes for the Thalian platform.
 
 - **AI chat context pre-loading.** Opening the AI chat via a link that includes `?context_entity=` in the URL automatically sends a context primer (`"Tell me about [entity]"`) so the assistant is already scoped to the right identity, device, or application when you arrive. Entity detail panels and finding cards that link to AI chat use this parameter, so the chat is ready to answer questions about the specific entity without a manual prompt.
 
+- **AI Providers are a first-class integration category.** The Integration Library now has an **AI Providers** filter covering **Anthropic**, **OpenAI**, and **LiteLLM**, and the integrations coverage panel tracks **AI Providers** as its own category alongside Identity, Endpoint, and the rest. These providers were already supported -- they are now discoverable from the category filter and the coverage map instead of only appearing in the full list, so you can see at a glance whether your AI spend and key-governance sources are connected.
+
+- **The Integration Library and connected list are easier to scan.** Category sections in the Integration Library are now collapsible: by default the categories you have already connected stay open and the rest collapse to a one-line header you can expand, with an **Expand all / Collapse all** toggle. Searching or selecting a category still shows everything. On the **Integrations** page, once you have connected eight or more tools the connected list groups them by category in the same order as the library.
+
+- **Remediation Queue tab now shows in-progress actions.** When the Queue tab had no pending approvals or active workflows, it displayed a blank page even though actions were actively running. The Queue now surfaces any in-progress actions directly, and shows a "Queue is clear" empty state with a link to History when there is genuinely nothing actionable.
+
 ### Fixes
 
 - **Crash on the Findings page for workspaces with AI agent findings fixed.** Navigating to the Findings page (`/findings`), or clicking the "assign owners" link from the dashboard, could hard-crash the page for workspaces where Thalian had detected AI agent or non-human identity findings. The crash was caused by a Terser minification reordering in the production bundle. Fixed.

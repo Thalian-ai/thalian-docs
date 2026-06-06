@@ -1,17 +1,19 @@
 # Compliance
 
-The Compliance page maps Thalian's findings and controls directly to SOC 2 Type II, ISO 27001, NIST CSF 2.0, and ISO 42001 requirements — so your team can see at a glance which controls are covered, which are at risk, and what evidence Thalian has already collected. All four frameworks render side-by-side as tabs, and the Compliance Trend chart tracks per-framework scores over time.
+The Compliance page maps Thalian's findings and controls directly to SOC 2 Type II, ISO 27001, NIST CSF 2.0, ISO 42001, NIST AI RMF (GOVERN), and the EU AI Act. Your team can see at a glance which controls are covered, which are at risk, and what evidence Thalian has already collected. All six frameworks render side-by-side as tabs, and the Compliance Trend chart tracks per-framework scores over time.
 
 ---
 
 ## What is the Compliance page?
 
-The Compliance page (`/compliance`) translates Thalian's raw findings into control-level coverage across four frameworks:
+The Compliance page (`/compliance`) translates Thalian's raw findings into control-level coverage across six frameworks:
 
 - **SOC 2 Type II** — Trust Services Criteria (Security, Availability, Confidentiality, Processing Integrity, Privacy)
 - **ISO 27001** — Annex A controls
 - **NIST CSF 2.0** — Cybersecurity Framework 2.0, including non-human identity and AI agent governance
 - **ISO 42001** — AI Management System (ISO/IEC 42001:2023) controls for AI inventory, monitoring, data flow, responsible use, and third-party AI suppliers
+- **NIST AI RMF (GOVERN)** covers the GOVERN function of the NIST AI Risk Management Framework: AI risk policies, risk-proportionate oversight, AI risk culture, and third-party AI supply chain
+- **EU AI Act** maps key obligations for high-risk AI systems: risk management (Art. 9), data governance (Art. 10), transparency (Art. 13), and human oversight (Art. 14)
 
 For each control, Thalian shows:
 
@@ -188,6 +190,34 @@ ISO/IEC 42001:2023 is the first international standard for AI management systems
 ### Using ISO 42001 for AI governance programs
 
 ISO 42001 is the cleanest framework to point to when a customer or regulator asks how you govern AI in production. Run the Compliance page filtered to ISO 42001 before an AI risk assessment — failing controls there name the specific tools, agents, or data flows driving the gap, which becomes the input list for your AI inventory and risk register.
+
+---
+
+## NIST AI RMF (GOVERN) coverage
+
+The NIST AI Risk Management Framework GOVERN function is where AI risk policy and oversight live. Thalian maps its cross-platform AI agent governance findings to four GOVERN outcomes:
+
+| Control | What Thalian monitors |
+|---|---|
+| **GOVERN 1.1** — AI risk policies in place | Confirmed AI agents with no governance record, no declared purpose, or an expired authorization |
+| **GOVERN 2.2** — Risk-proportionate oversight | Agents with no autonomy classification, and high-risk agents on an infrequent review cadence |
+| **GOVERN 2.4** — AI risk culture and inter-agent dependencies | One AI agent acting on another agent's identity (an unreviewed trust chain between non-human identities) |
+| **GOVERN 5.1** — Third-party AI supply chain | AI providers receiving prompts and data with no sanctioned vendor record, and unsanctioned MCP gateways |
+
+The GOVERN tab pairs with the NIST CSF 2.0 tab: CSF 2.0 covers the operational PR.AA / ID.AM controls, while NIST AI RMF GOVERN covers the policy and oversight layer above them.
+
+---
+
+## EU AI Act coverage
+
+Thalian maps the agent governance surface to the EU AI Act obligations most relevant to deployers and providers of AI systems:
+
+| Control | What Thalian monitors |
+|---|---|
+| **Art. 9** — Risk management system | Behavioral drift and scope-exceeded findings on agents operating outside their declared mandate |
+| **Art. 10** — Data governance | AI providers receiving data with no sanctioned vendor record (no evidence of a data processing agreement) |
+| **Art. 13** — Transparency | Agents with no declared purpose or governance record on file |
+| **Art. 14** — Human oversight | Agents with no autonomy classification, so the human-oversight model cannot be assessed |
 
 ---
 

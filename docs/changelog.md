@@ -6,6 +6,20 @@ Notable changes, new features, and fixes for the Thalian platform.
 
 ## June 2026
 
+### New Features
+
+- **Cross-platform AI agent governance.** Every confirmed AI agent can now carry a **governance record**, set from its detail panel in **Inventory -> Non-human**: a declared purpose, the scope categories it is authorized to use, an autonomy level (**human in loop**, **human on loop**, or **fully autonomous**), a business owner, a review cadence, and a hard authorization expiry. Thalian compares what each agent is authorized to do against what it actually does, week over week, and flags the gaps:
+    - **No governance record / no autonomy classification** -- a confirmed agent operating with no declared purpose or oversight model on file.
+    - **Scope exceeded** -- the agent invoked a scope category outside its authorized set (critical when the extra scope is financial, identity-write, credential-write, or org-admin).
+    - **Behavioral drift** -- a 3x-or-more jump in activity, reach, or API volume against the agent's own four-week baseline.
+    - **New platform expansion** -- the agent appeared on a system it was never active on before, with a higher-priority variant when the expansion originates from datacenter IP ranges.
+    - **Authorization expired** and **access review overdue** -- the agent is still operating past its authorization expiry or its scheduled review date.
+    - **Agent acting on another agent** -- one AI agent acting on a second agent's identity, an unreviewed trust chain between non-human identities.
+    - **Agent showing human signals** -- a confirmed agent with failed password attempts, browser sessions, or geo-diverse logins, which points to either a stolen agent credential or a human operating under a service account to avoid per-user controls.
+  Each agent also gets an auto-computed **risk tier** (derived from its scopes, autonomy, and platform reach) shown as a badge on its detail panel, plus a **least-privilege advisory** that points out scope categories the agent is authorized for but has not used in weeks. A **Platform legs** section links the same logical agent across platforms -- the Slack bot, the Okta agent, and the GitHub App that are really one thing -- with admin confirm or dismiss on each suggested link. And when you ask why an agent changed, the causality view correlates the drift against recent governance and configuration changes.
+
+- **Two new AI compliance frameworks: NIST AI RMF (GOVERN) and EU AI Act.** The **Compliance** page adds two AI-specific framework tabs alongside SOC 2, ISO 27001, NIST CSF 2.0, and ISO 42001. The agent governance findings map to NIST AI RMF GOVERN functions (1.1, 2.2, 2.4, 5.1) and EU AI Act articles (9, 10, 13, 14), and both score over time on the Compliance Trend chart.
+
 ### Improvements
 
 - **Non-human identity inventory is now first-class.** The **Inventory** page stat strip now shows a dedicated **Non-human** tile alongside People, Applications, and Devices, with the current AI agent and service account count. The page headline adjusts when non-human identities dominate the workspace population. The sort options add **Non-human first** so agents and service accounts surface at the top of the list regardless of name or risk score. The tab badge on the Non-human tab counts pending-triage identities (those flagged as likely NHI but not yet formally classified) so the review queue is always visible.

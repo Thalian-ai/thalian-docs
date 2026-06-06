@@ -30,6 +30,7 @@ This policy applies to:
 | **Restricted** | Credentials and secrets | Integration API tokens, OAuth refresh tokens, encryption keys | AES-256-GCM encrypted at rest; never logged; env vars only |
 | **Confidential** | Customer workspace data | Identities, entitlements, findings, audit logs, device inventory | Encrypted in transit (TLS 1.2+); Row Level Security enforced; workspace-scoped queries |
 | **Internal** | Platform operational data | Sync logs, drift snapshots, AI conversation history | Retained per plan tier; deleted by automated retention enforcement |
+| **Confidential (AI memory)** | AI governance decisions | `workspace_ai_memory` — accepted risk records, dismissed patterns, remediation preferences, org context | Workspace-scoped; RLS enforced; no automated deletion; retained until admin removes or workspace is deleted |
 | **Public** | Marketing and documentation | Landing page content, API docs, this policy | No special handling required |
 
 ## 4. Access Control
@@ -94,6 +95,7 @@ All security-relevant actions are logged to the `audit_log` table, including:
 - Security setting changes (MFA enforcement, session timeout, IP allowlist)
 - Billing events (checkout, upgrade, cancellation, payment failure)
 - Data operations (workspace export, workspace deletion)
+- AI governance decisions (memory saved: `ai_memory_saved`; memory deleted: `ai_memory_deleted`)
 
 ### 6.2 Immutability
 

@@ -50,6 +50,18 @@ This data is used solely to enable offboarding gap detection and identity lifecy
 - AI conversation history (within your workspace)
 - Remediation actions taken
 
+### AI Workspace Memory
+
+When you use the AI chat feature, the assistant may save notes to your workspace to improve future responses. These notes are stored in the `workspace_ai_memory` table and may include:
+
+- Organizational context (how your workspace interprets findings)
+- Accepted risk records (findings you have explicitly acknowledged and accepted)
+- Dismissed patterns (finding categories you have suppressed for your environment)
+- Remediation preferences (how your org prefers to handle specific issue types)
+- Integration-specific notes
+
+This data is workspace-scoped, subject to Row Level Security, and is not shared across workspaces. It is not automatically deleted by the plan-tier retention system — it persists until an admin removes it explicitly or the workspace is deleted. Admins can delete individual entries from the AI chat interface at any time.
+
 ### Technical Data
 
 - Browser type and version
@@ -112,6 +124,7 @@ For a detailed breakdown of what data enters AI prompts, what is excluded, human
 |---|---|---|---|
 | Customer Data | 7 days | 1 year | Unlimited |
 | AI conversation history | 7 days | 1 year | Unlimited |
+| AI workspace memory | Until deleted by admin | Until deleted by admin | Until deleted by admin |
 | Audit logs | 365 days minimum | 365 days minimum | 365 days minimum |
 | Account information | Duration of account | Duration of account | Duration of account |
 

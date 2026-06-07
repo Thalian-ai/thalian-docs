@@ -22,6 +22,20 @@ Notable changes, new features, and fixes for the Thalian platform.
 
 ### Improvements
 
+- **Agent Inventory filter controls replaced with pill toggles.** The autonomy, authorization status, and scope-status dropdowns on the **Inventory → Non-human → AI Agents** view are now inline pill toggle groups, matching the filter style used elsewhere in the product. A compact **⚑ Drift** shortcut in the scope pill group jumps directly to the drifted-scope subset. Rows with active scope drift show an inline amber `⚑ drift` chip so the status is visible without opening the row.
+
+- **Insights tab shows a count badge.** The **Insights** tab on the Findings page now shows a count badge when correlation insights are available, so it is visible at a glance that there are causality signals to review.
+
+- **Correlation analysis can be triggered from the empty state.** When the Insights tab has not yet been populated, a **Run correlation analysis** button appears in the empty state so you can kick off the first analysis without hunting for the Refresh button in the header.
+
+- **Null MFA status shown as "Unknown" instead of a dash.** Identity rows and stat tiles previously rendered `—` for identities where MFA status could not be determined from the connected identity provider. These now show **Unknown** with a tooltip explaining that the status could not be resolved. When the workspace has identities in this state, a dedicated **MFA Unknown** stat tile appears in the strip and acts as a filter.
+
+- **Compliance preview shows a scored sample.** Free-plan users on the Compliance page now see a sample of six controls spanning all six supported frameworks, with a computed score ring and a **Sample score · upgrade to see yours** label. The preview table adds a **Framework** column so the distribution is obvious at a glance. The upgrade gate and real-data protection are unchanged.
+
+- **Remediation queue has a category filter.** A **Category** dropdown has been added to the Remediation queue filter bar, letting you narrow actions by type: **Identity**, **Access**, **Credential**, **Device**, **Application**, or **Operations**. The empty queue state also now includes direct navigation buttons to the Findings page and to Integrations.
+
+- **Impact Analysis builder is more compact.** The action builder on the **Remediation → Simulate** tab now renders as a single inline row (action selector, entity picker, Add button) rather than a stacked form with label rows, reducing the vertical footprint. A **Current Score → If All Implemented** hero card appears above the recommendations list showing the projected score delta if every suggestion in the list is applied.
+
 - **Non-human identity inventory is now first-class.** The **Inventory** page stat strip now shows a dedicated **Non-human** tile alongside People, Applications, and Devices, with the current AI agent and service account count. The page headline adjusts when non-human identities dominate the workspace population. The sort options add **Non-human first** so agents and service accounts surface at the top of the list regardless of name or risk score. The tab badge on the Non-human tab counts pending-triage identities (those flagged as likely NHI but not yet formally classified) so the review queue is always visible.
 
 - **Remediation queue shows agent-aware action labels.** When a pending or in-progress action targets an AI agent or service account, the queue now uses context-appropriate verb phrases: **Suspend agent** (instead of "Suspend user"), **Revoke agent grant** (instead of "Revoke OAuth token"), and **Contain agent** for endpoint containment actions on an AI agent's host. A small agent icon marks these rows so they stand out from human-identity actions at a glance.
